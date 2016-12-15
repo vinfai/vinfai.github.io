@@ -4,29 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>dubbo原理-插件加载ExtesionLoader | vinfai&#39;s blog</title>
+    <title>hexo+github创建blog | vinfai&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="vinfai">
     
 
     
-    <meta name="description" content="Dubbo 采用微内核 +插件体系，使得设计优雅扩展性强。那所谓的微内核插件体系，使得设计优雅扩展性强。如何实现？采用SPI机制实现查找相关实现。（定义接口，厂家实现）
-Dubbo 机制：
-扩展接口定义：1234567891011@Documented@Retention(RetentionPolicy.RUNTIME)@Target(&amp;#123;ElementType.TYPE&amp;#125;)pu">
+    <meta name="description" content="一、创建github账号，本地安装gitgithub创建官网注册：https://github.com/本地安装git，步骤：安装gitwindows：https://git-for-windows.github.io/TortoiseGit安装https://tortoisegit.org/添加 SSH key1、首先需要检查你电脑是否已经有 SSH key运行 git Bash 客户端，输入如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dubbo原理-插件加载ExtesionLoader">
-<meta property="og:url" content="http://yoursite.com/2016/12/15/dubbo原理-插件加载ExtesionLoader/index.html">
+<meta property="og:title" content="hexo+github创建blog">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/hexo-github创建blog/index.html">
 <meta property="og:site_name" content="vinfai's blog">
-<meta property="og:description" content="Dubbo 采用微内核 +插件体系，使得设计优雅扩展性强。那所谓的微内核插件体系，使得设计优雅扩展性强。如何实现？采用SPI机制实现查找相关实现。（定义接口，厂家实现）
-Dubbo 机制：
-扩展接口定义：1234567891011@Documented@Retention(RetentionPolicy.RUNTIME)@Target(&amp;#123;ElementType.TYPE&amp;#125;)pu">
-<meta property="og:updated_time" content="2016-12-15T05:54:10.554Z">
+<meta property="og:description" content="一、创建github账号，本地安装gitgithub创建官网注册：https://github.com/本地安装git，步骤：安装gitwindows：https://git-for-windows.github.io/TortoiseGit安装https://tortoisegit.org/添加 SSH key1、首先需要检查你电脑是否已经有 SSH key运行 git Bash 客户端，输入如">
+<meta property="og:updated_time" content="2016-12-15T06:51:15.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dubbo原理-插件加载ExtesionLoader">
-<meta name="twitter:description" content="Dubbo 采用微内核 +插件体系，使得设计优雅扩展性强。那所谓的微内核插件体系，使得设计优雅扩展性强。如何实现？采用SPI机制实现查找相关实现。（定义接口，厂家实现）
-Dubbo 机制：
-扩展接口定义：1234567891011@Documented@Retention(RetentionPolicy.RUNTIME)@Target(&amp;#123;ElementType.TYPE&amp;#125;)pu">
+<meta name="twitter:title" content="hexo+github创建blog">
+<meta name="twitter:description" content="一、创建github账号，本地安装gitgithub创建官网注册：https://github.com/本地安装git，步骤：安装gitwindows：https://git-for-windows.github.io/TortoiseGit安装https://tortoisegit.org/添加 SSH key1、首先需要检查你电脑是否已经有 SSH key运行 git Bash 客户端，输入如">
 
     
     <link rel="alternative" href="/atom.xml" title="vinfai&#39;s blog" type="application/atom+xml">
@@ -86,14 +80,14 @@ Dubbo 机制：
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/15/dubbo原理-插件加载ExtesionLoader/" title="dubbo原理-插件加载ExtesionLoader" itemprop="url">dubbo原理-插件加载ExtesionLoader</a>
+      <a href="/2016/12/15/hexo-github创建blog/" title="hexo+github创建blog" itemprop="url">hexo+github创建blog</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="vinfai" target="_blank" itemprop="author">vinfai</a>
 		
   <p class="article-time">
-    <time datetime="2016-12-15T04:46:26.000Z" itemprop="datePublished"> 發表於 2016-12-15</time>
+    <time datetime="2016-12-15T06:40:37.000Z" itemprop="datePublished"> 發表於 2016-12-15</time>
     
   </p>
 </header>
@@ -106,24 +100,17 @@ Dubbo 机制：
 		
 		</div>
 		
-		<p>Dubbo 采用微内核 +插件体系，使得设计优雅扩展性强。那所谓的微内核插件体系，使得设计优雅扩展性强。<br>如何实现？采用SPI机制实现查找相关实现。（定义接口，厂家实现）</p>
-<p>Dubbo 机制：</p>
-<p>扩展接口定义：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Documented</span></div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE&#125;)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SPI &#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 缺省扩展点名。</div><div class="line">     */</div><div class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Documented</span></div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Adaptive &#123;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 从&#123;<span class="doctag">@link</span> URL&#125;的Key名，对应的Value作为要Adapt成的Extension名。</div><div class="line">     * &lt;p&gt;</div><div class="line">     * 如果&#123;<span class="doctag">@link</span> URL&#125;这些Key都没有Value，使用 用 缺省的扩展（在接口的&#123;<span class="doctag">@link</span> SPI&#125;中设定的值）。&lt;br&gt;</div><div class="line">     * 比如，&lt;code&gt;String[] &#123;"key1", "key2"&#125;&lt;/code&gt;，表示</div><div class="line">     * &lt;ol&gt;</div><div class="line">     * &lt;li&gt;先在URL上找key1的Value作为要Adapt成的Extension名；</div><div class="line">     * &lt;li&gt;key1没有Value，则使用key2的Value作为要Adapt成的Extension名。</div><div class="line">     * &lt;li&gt;key2没有Value，使用缺省的扩展。</div><div class="line">     * &lt;li&gt;如果没有设定缺省扩展，则方法调用会抛出&#123;<span class="doctag">@link</span> IllegalStateException&#125;。</div><div class="line">     * &lt;/ol&gt;</div><div class="line">     * &lt;p&gt;</div><div class="line">     * 如果不设置则缺省使用Extension接口类名的点分隔小写字串。&lt;br&gt;</div><div class="line">     * 即对于Extension接口&#123;<span class="doctag">@code</span> com.alibaba.dubbo.xxx.YyyInvokerWrapper&#125;的缺省值为&lt;code&gt;String[] &#123;"yyy.invoker.wrapper"&#125;&lt;/code&gt;</div><div class="line">     * </div><div class="line">     * <span class="doctag">@see</span> SPI#value()</div><div class="line">     */</div><div class="line">    String[] value() <span class="keyword">default</span> &#123;&#125;;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<p>一、创建github账号，本地安装git<br>github创建<br>官网注册：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>本地安装git，步骤：<br>安装git<br>windows：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a><br>TortoiseGit安装<br><a href="https://tortoisegit.org/" target="_blank" rel="external">https://tortoisegit.org/</a><br>添加 SSH key<br>1、首先需要检查你电脑是否已经有 SSH key<br>运行 git Bash 客户端，输入如下代码：<br>1<br>2<br>$ cd ~/.ssh<br>$ ls<br>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。<br>2、创建一个 SSH key<br>1<br>$ ssh-keygen -t rsa -C “your_email@example.com”<br>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>最终生成 ==id_rsa==和 ==id_rsa.pub== 两个秘钥文件<br>3、添加你的 SSH key 到 github上面去<br>拷贝==id_rsa.pub==文件内容，至github账号相关设置<br>4、测试ssh<br>1<br>$ ssh -T git@github.com<br>建立github仓库<br>仓库命名规则：用户名.github.io<br>二、安装node.js<br>到Node.js官网下载相应平台的最新版本，一路安装即可(或者搜索安装程序下载安装)<br>三、使用 Hexo 创建博客框架<br>安装Hexo<br>打开git shell，输入命令：<br>1<br>npm install hexo-cli -g<br>等待安装<br>部署Hexo<br>打开 Git Shell,进入想要部署的目录：<br>1、hexo初始化<br>1<br>hexo init Hexo<br>创建 hexo 目录<br>2、安装依赖文件<br>1<br>2<br>$ cd Hexo<br>$ npm install<br>3、启动<br>1<br>2<br>$ hexo generate (可以简写成: hexo g)<br>$ hexo server<br>访问页面 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>将本地文件部署到 GitHub<br>修改 Hexo 中的 _config.yml 文件，添加如下<br>1<br>2<br>3<br>4<br>deploy:<br>      type: git<br>      repo: <a href="https://yourname:password@github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://yourname:password@github.com/yourname/yourname.github.io.git</a><br>      branch: master<br>将其 deploy 到仓库中<br>1<br>2<br>3<br>$ hexo clean<br>$ hexo generate<br>$ hexo deploy<br>通过 <a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> 即可访问博客<br>四、增加模板（jacman）<br>下载模板<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>拷贝至hexo\themes目录下面<br>修改hexo下的_config.yml文件<br>1<br>2<br>3<br>theme: jacman<br>stylus:<br>  compress: true<br>重启hexo<br>五、Jacman配置<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>安装RSS<br>切换到blog根目录下，输入:<br>1<br>$ npm install hexo-generator-feed<br>安装sitemap<br>切换到blog根目录下，输入:<br>1<br>$ npm install hexo-generator-sitemap<br>之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录。<br>增加站内搜索(google)<br>注册Search Console<br>设置_config.yml<br>1<br>2<br>3<br>google_cse:<br>  enable: true<br>  cx: 010843689475283178591  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.</p>
+<p>– deploy 部署问题<br>npm install hexo-deployer-git –save<br>type: git</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/dubbo/">dubbo</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/dubbo/">dubbo</a>
+  <span></span> <a href="/tags/github/">github</a><a href="/tags/hexo/">hexo</a>
   </div>
 
 </div>
@@ -132,7 +119,7 @@ Dubbo 机制：
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/12/15/dubbo原理-插件加载ExtesionLoader/" data-title="dubbo原理-插件加载ExtesionLoader | vinfai&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/12/15/hexo-github创建blog/" data-title="hexo+github创建blog | vinfai&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -145,19 +132,11 @@ Dubbo 机制：
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/12/15/hexo-github创建blog/" title="hexo+github创建blog">
-  <strong>上一篇：</strong><br/>
-  <span>
-  hexo+github创建blog</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/12/15/hello-world/"  title="Hello World">
+<a href="/2016/12/15/dubbo原理-插件加载ExtesionLoader/"  title="dubbo原理-插件加载ExtesionLoader">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>dubbo原理-插件加载ExtesionLoader
 </span>
 </a>
 </div>
