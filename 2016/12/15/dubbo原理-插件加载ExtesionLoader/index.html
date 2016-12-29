@@ -97,7 +97,7 @@ Dubbo 机制：
 基于dubbo.jar内的META-INF/spring.handlers配置，Spring在遇到dubbo名称空间时，会回调DubboNamespaceHandler。
 所有dubbo的标签，都统一用Dubb">
 <meta property="og:image" content="http://img.blog.csdn.net/20141129165434853?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXVob25nd2VpX3poYW5xaXU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-12-15T09:50:55.629Z">
+<meta property="og:updated_time" content="2016-12-29T09:30:25.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dubbo原理-插件加载ExtesionLoader">
 <meta name="twitter:description" content="Dubbo 采用微内核 +插件体系，使得设计优雅扩展性强。那所谓的微内核插件体系，使得设计优雅扩展性强。如何实现？采用SPI机制实现查找相关实现。（定义接口，厂家实现）
@@ -354,6 +354,11 @@ Dubbo 机制：
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -373,7 +378,7 @@ Dubbo 机制：
 <p>基于dubbo.jar内的META-INF/spring.handlers配置，Spring在遇到dubbo名称空间时，会回调DubboNamespaceHandler。</p>
 <p>所有dubbo的标签，都统一用DubboBeanDefinitionParser进行解析，基于一对一属性映射，将XML标签解析为Bean对象。</p>
 <p>在ServiceConfig.export()或ReferenceConfig.get()初始化时，将Bean对象转换URL格式，所有Bean属性转成URL的参数。</p>
-<p>然后将URL传给Protocol扩展点，基于扩展点的Adaptive机制，根据URL的协议头，进行不同协议的服务暴露或引用。</p>
+<p>然后将URL传给Protocol扩展点，基于扩展点的Adaptive机制，根据URL的协议头，进行不同协议的服务暴露或引用。<br><a id="more"></a></p>
 <h3 id="扩展接口定义"><a href="#扩展接口定义" class="headerlink" title="扩展接口定义"></a>扩展接口定义</h3><hr>
 <h4 id="SPI"><a href="#SPI" class="headerlink" title="@SPI"></a>@SPI</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Documented</span></div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE&#125;)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SPI &#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 缺省扩展点名。</div><div class="line">     */</div><div class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>Dubbo的扩展点加载从JDK标准的SPI(Service Provider Interface)扩展点发现机制加强而来。
@@ -608,6 +613,22 @@ Adaptive实例的逻辑是固定，指定提取的URL的Key，即可以代理真
 
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>

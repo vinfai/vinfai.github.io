@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/15/hexo-github创建blog/index.html">
 <meta property="og:site_name" content="燕子小窝">
 <meta property="og:description" content="一、创建github账号，本地安装gitgithub创建官网注册：https://github.com/本地安装git，步骤：安装gitwindows：https://git-for-windows.github.io/TortoiseGit安装https://tortoisegit.org/添加 SSH key1、首先需要检查你电脑是否已经有 SSH key运行 git Bash 客户端，输入如">
-<meta property="og:updated_time" content="2016-12-15T06:54:45.551Z">
+<meta property="og:updated_time" content="2016-12-29T09:32:09.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github创建blog">
 <meta name="twitter:description" content="一、创建github账号，本地安装gitgithub创建官网注册：https://github.com/本地安装git，步骤：安装gitwindows：https://git-for-windows.github.io/TortoiseGit安装https://tortoisegit.org/添加 SSH key1、首先需要检查你电脑是否已经有 SSH key运行 git Bash 客户端，输入如">
@@ -321,6 +321,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -335,7 +340,13 @@
       
 
       
-        <p>一、创建github账号，本地安装git<br>github创建<br>官网注册：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>本地安装git，步骤：<br>安装git<br>windows：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a><br>TortoiseGit安装<br><a href="https://tortoisegit.org/" target="_blank" rel="external">https://tortoisegit.org/</a><br>添加 SSH key<br>1、首先需要检查你电脑是否已经有 SSH key<br>运行 git Bash 客户端，输入如下代码：<br>1<br>2<br>$ cd ~/.ssh<br>$ ls<br>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。<br>2、创建一个 SSH key<br>1<br>$ ssh-keygen -t rsa -C “your_email@example.com”<br>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>最终生成 ==id_rsa==和 ==id_rsa.pub== 两个秘钥文件<br>3、添加你的 SSH key 到 github上面去<br>拷贝==id_rsa.pub==文件内容，至github账号相关设置<br>4、测试ssh<br>1<br>$ ssh -T git@github.com<br>建立github仓库<br>仓库命名规则：用户名.github.io<br>二、安装node.js<br>到Node.js官网下载相应平台的最新版本，一路安装即可(或者搜索安装程序下载安装)<br>三、使用 Hexo 创建博客框架<br>安装Hexo<br>打开git shell，输入命令：<br>1<br>npm install hexo-cli -g<br>等待安装<br>部署Hexo<br>打开 Git Shell,进入想要部署的目录：<br>1、hexo初始化<br>1<br>hexo init Hexo<br>创建 hexo 目录<br>2、安装依赖文件<br>1<br>2<br>$ cd Hexo<br>$ npm install<br>3、启动<br>1<br>2<br>$ hexo generate (可以简写成: hexo g)<br>$ hexo server<br>访问页面 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>将本地文件部署到 GitHub<br>修改 Hexo 中的 _config.yml 文件，添加如下<br>1<br>2<br>3<br>4<br>deploy:<br>      type: git<br>      repo: <a href="https://yourname:password@github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://yourname:password@github.com/yourname/yourname.github.io.git</a><br>      branch: master<br>将其 deploy 到仓库中<br>1<br>2<br>3<br>$ hexo clean<br>$ hexo generate<br>$ hexo deploy<br>通过 <a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> 即可访问博客<br>四、增加模板（jacman）<br>下载模板<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>拷贝至hexo\themes目录下面<br>修改hexo下的_config.yml文件<br>1<br>2<br>3<br>theme: jacman<br>stylus:<br>  compress: true<br>重启hexo<br>五、Jacman配置<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>安装RSS<br>切换到blog根目录下，输入:<br>1<br>$ npm install hexo-generator-feed<br>安装sitemap<br>切换到blog根目录下，输入:<br>1<br>$ npm install hexo-generator-sitemap<br>之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录。<br>增加站内搜索(google)<br>注册Search Console<br>设置_config.yml<br>1<br>2<br>3<br>google_cse:<br>  enable: true<br>  cx: 010843689475283178591  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.</p>
+        <p>一、创建github账号，本地安装git<br>github创建<br>官网注册：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>本地安装git，步骤：<br>安装git<br>windows：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a><br>TortoiseGit安装<br><a href="https://tortoisegit.org/" target="_blank" rel="external">https://tortoisegit.org/</a><br>添加 SSH key<br>1、首先需要检查你电脑是否已经有 SSH key<br>运行 git Bash 客户端，输入如下代码：<br><a id="more"></a><br>$ cd ~/.ssh<br>$ ls<br>这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。<br>2、创建一个 SSH key<br>$ ssh-keygen -t rsa -C “your_email@example.com”<br>代码参数含义：<br>-t 指定密钥类型，默认是 rsa ，可以省略。<br>-C 设置注释文字，比如邮箱。<br>最终生成 ==id_rsa==和 ==id_rsa.pub== 两个秘钥文件<br>3、添加你的 SSH key 到 github上面去<br>拷贝==id_rsa.pub==文件内容，至github账号相关设置<br>4、测试ssh<br>$ ssh -T git@github.com<br>建立github仓库<br>仓库命名规则：用户名.github.io<br>二、安装node.js<br>到Node.js官网下载相应平台的最新版本，一路安装即可(或者搜索安装程序下载安装)<br>三、使用 Hexo 创建博客框架<br>安装Hexo<br>打开git shell，输入命令：<br>npm install hexo-cli -g<br>等待安装<br>部署Hexo<br>打开 Git Shell,进入想要部署的目录：<br>1、hexo初始化<br>hexo init Hexo<br>创建 hexo 目录<br>2、安装依赖文件<br>$ cd Hexo<br>$ npm install<br>3、启动</p>
+<p>$ hexo generate (可以简写成: hexo g)<br>$ hexo server<br>访问页面 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>将本地文件部署到 GitHub<br>修改 Hexo 中的 _config.yml 文件，添加如下</p>
+<p>deploy:<br>      type: git<br>      repo: <a href="https://yourname:password@github.com/yourname/yourname.github.io.git" target="_blank" rel="external">https://yourname:password@github.com/yourname/yourname.github.io.git</a><br>      branch: master<br>将其 deploy 到仓库中</p>
+<p>$ hexo clean<br>$ hexo generate<br>$ hexo deploy<br>通过 <a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> 即可访问博客<br>四、增加模板（jacman）<br>下载模板<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>拷贝至hexo\themes目录下面<br>修改hexo下的_config.yml文件</p>
+<p>theme: jacman<br>stylus:<br>  compress: true<br>重启hexo<br>五、Jacman配置<br><a href="https://github.com/wuchong/jacman" target="_blank" rel="external">https://github.com/wuchong/jacman</a><br>安装RSS<br>切换到blog根目录下，输入:<br>1<br>$ npm install hexo-generator-feed<br>安装sitemap<br>切换到blog根目录下，输入:</p>
+<p>$ npm install hexo-generator-sitemap<br>之后重启博客，访问/atom.xml和/sitemap.xml，会发现已经生成了。可以把sitemap提交到搜索引擎的站长平台来增加收录。<br>增加站内搜索(google)<br>注册Search Console<br>设置_config.yml</p>
+<p>google_cse:<br>  enable: true<br>  cx: 010843689475283178591  ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.</p>
 <p>– deploy 部署问题<br>npm install hexo-deployer-git –save<br>type: git</p>
 <p>创建文章<br>hexo new “wwww”<br>删除文章</p>
 <p><a href="https://github.com/wuchong/jacman/blob/master/README_zh.md" target="_blank" rel="external">https://github.com/wuchong/jacman/blob/master/README_zh.md</a><br><a href="https://jeremylei.github.io/" target="_blank" rel="external">https://jeremylei.github.io/</a></p>
@@ -525,6 +536,22 @@
 
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>
