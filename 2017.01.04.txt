@@ -1,0 +1,123 @@
+@RequestMapping("/admin/movie/partnercount.xhtml")
+	public String partnercount(Timestamp starttime, Timestamp endtime, String timetype, String status, String opentype, String paidmethod, HttpServletResponse res, String isXls, ModelMap model){
+		String url = "admin/movie/partnercount.vm";
+		if(starttime==null || endtime==null) return url;
+		List<Map<String, Object>> qryMapList = null;
+		Map authorityInfMap=getauthorityInfMap();
+		if(authorityInfMap==null) return forwardMessage(model,"您没有数据访问权限，请联系管理员");
+		if(StringUtils.equals(paidmethod, "partner")){
+			qryMapList = movieService.getPartnerPayList(starttime, endtime, timetype, status, opentype,authorityInfMap);
+		}else{
+		
+
+	qryMapList = movieService.getMobilePartnerPayList(starttime, endtime, timetype, status, opentype,authorityInfMap);
+		}
+		model.put("payTextMap", chargeService.getPartnerAndMobilePayConstMap());
+		model.put("qryMapList", qryMapList);
+		downloadReport(res,isXls);
+		return url;
+	}
+
+
+
+VmUtils.appendWhere(where.toString());
+
+if(StringUtils.isNotEmpty(isXls)){
+					qryMapList = appsourceService.getAppSourceDayStatList(starttime, endtime, byday, citycode, apptype, ostype, appversion, appsourceList, stattype, authorityInfMap,0, ReportConstant.PAGE_EXPORT);
+				}
+
+leancloud.com
+Vinfai14
+
+http://newreport.gewara.com/report/admin/finan/orderdetailBypartnerId.xhtml
+
+LeetCode 和 牛客
+
+
+317067593	明星时代影城（贵阳汇金店）
+323905080	明星时代影城（上海南翔店）
+51015547	大地影院-重庆涪陵城市广场店
+209963
+	210103 
+210605 
+
+
+
+sql.append(TicketOrderServiceImpl.ORDER_ALIPAY+" as 网络支付金额,"+TicketOrderServiceImpl.ORDER_MEMBERCARDPAY+"  as 会员卡支付金额,COALESCE(t.deposit,0) as 保证金金额,");
+		sql.append(" sum("+TicketOrderServiceImpl.ORDER_ALIPAY+") over(PARTITION by 1) as 网络支付金额合计,");
+		sql.append(" sum("+TicketOrderServiceImpl.ORDER_MEMBERCARDPAY+") over(PARTITION by 1) as 会员卡支付金额合计,");
+		sql.append(" sum(COALESCE(t.deposit,0)) over(PARTITION by 1) as 保证金金额合计,");
+		sql.append(" sum(T .accountpay) over(PARTITION by 1) as 账户金额支付合计,");
+		sql.append(" sum(T .wabipay) over(PARTITION by 1) as 瓦币支付金额合计,");
+		sql.append(" sum(T .otherfee) over(PARTITION by 1) as 其它费用合计,");
+		sql.append(" sum(T .aamount) over(PARTITION by 1) as 兑换券金额合计, ");
+		sql.append(" sum(T .bamount) over(PARTITION by 1) as 补差券金额合计, ");
+		sql.append(" sum(T.camount+T.damount) over(PARTITION by 1) as 抵值券金额合计, ");
+		sql.append(" sum(T.point/100) over(PARTITION by 1) as 积分支付金额合计, ");
+		sql.append(" sum(COALESCE("+OrderConstant.SPECIALDISCOUNT_ALLOWANCE+", 0)) over(PARTITION by 1) as 补贴金额合计,  ");
+		sql.append(" t.amount+t.itemfee+t.otherfee-t.totalcost as 毛利润,(COALESCE(t.samount,0)) as 销售券抵用金额,(COALESCE(t.pamount,0)) as 营销券抵用金额,(COALESCE(t.preaamount,0)+COALESCE(t.mamount,0)+COALESCE(t.famount,0)) as 其他券抵用金额, ");
+		sql.append(" sum(t.amount+t.itemfee+t.otherfee-t.totalcost)  over(PARTITION by 1)  as 毛利润合计,sum(COALESCE(t.samount,0)) over(PARTITION by 1)  as 销售券抵用金额合计,sum(COALESCE(t.pamount,0))  over(PARTITION by 1)  as 营销券抵用金额合计,sum(COALESCE(t.preaamount,0)+COALESCE(t.mamount,0)+COALESCE(t.famount,0))  over(PARTITION by 1)  as 其他券抵用金额合计,");
+		
+if (StringUtils.isNotBlank(dramaName)) {
+			where.append(" and exists(select recordid from drama d where d.recordid=t.itemid and d.dramaname like ? )");
+			params.add("%" + dramaName.trim() + "%");
+		}
+		String whereSql = buildOrderWhere(params, where, OrderConstant.ORDER_TYPE_DRAMA, timetype, starttime, endtime, status, null, null, dramaId, threatreId, citycode);
+		if(OrderConstant.MEMBER_CARD_PAY_YES.equals(membercardpay)){
+			whereSql = whereSql+" and t.paymethod='memberCardPay' ";//针对财务该版块剔除
+		}else if(OrderConstant.MEMBER_CARD_PAY_NO.equals(membercardpay)){
+			whereSql = whereSql+" and t.paymethod!='memberCardPay' "; 
+		}   
+		if(OrderConstant.SALE_TYPE_OFF.equalsIgnoreCase(saletype)){
+	    whereSql = whereSql+" and t.partnerid="+PayConstant.GEWA_DRAMA_ADMIN_OFFLINE;
+	    }else if(OrderConstant.SALE_TYPE_MOBILE.equalsIgnoreCase(saletype)){
+	    whereSql = whereSql+" and t.partnerid="+PayConstant.GEWA_DRAMA_ADMIN_MOBILE;
+	    }else if(OrderConstant.SALE_TYPE_ON.equalsIgnoreCase(saletype)){
+	    whereSql = whereSql+" and t.partnerid!="+PayConstant.GEWA_DRAMA_ADMIN_OFFLINE +" and t.partnerid!="+PayConstant.GEWA_DRAMA_ADMIN_MOBILE;
+	    }
+		sql.append("select t.itemid as 演出, t.salecycle as 版本, t.placeid as 剧院,sum(t.otherfee) as 其它费用," + "	sum(sum(t.otherfee)) over(PARTITION by 1) as 其它费用合计, " +
+	            "  sum(COALESCE(t.inneramount,0)) as 内部优惠金额 ,sum(sum(COALESCE(t.inneramount,0))) over(PARTITION by 1) as 内部优惠金额合计,"+
+				//"sum(t.aamount) as 兑换券金额, sum(sum(t.aamount)) over(PARTITION by 1) as 兑换券金额合计, sum(t.bamount) as 补差券金额, sum(sum(t.bamount)) over(PARTITION by 1) as 补差券金额合计, sum(t.camount+t.damount) as 抵值券金额, sum(sum(t.camount+t.damount)) over(PARTITION by 1) as 抵值券金额合计, sum(t.point/100) as 积分支付金额, sum(sum(t.point/100)) over(PARTITION by 1) as 积分支付金额合计, sum(sum(s.orderallowance+s.unitallowance*t.quantity)) over(PARTITION by 1) as 补贴金额合计,  sum(t.expressfee) as 快递费金额,sum(sum(t.expressfee)) over(PARTITION by 1) as 快递费金额合计 ,  " 
+//				" sum(t.point/100) as 积分支付金额, sum(sum(t.point/100)) over(PARTITION by 1) as 积分支付金额合计,sum(s.orderallowance+s.unitallowance*t.quantity) as 补贴金额,  sum(sum(s.orderallowance+s.unitallowance*t.quantity)) over(PARTITION by 1) as 补贴金额合计,  sum(t.expressfee) as 快递费金额,sum(sum(t.expressfee)) over(PARTITION by 1) as 快递费金额合计 ,  " 
+				" sum(t.point/100) as 积分支付金额, sum(sum(t.point/100)) over(PARTITION by 1) as 积分支付金额合计,"+OrderConstant.SPECIALDISCOUNT_ALLOWANCE_SUM+" as 补贴金额,  sum("+OrderConstant.SPECIALDISCOUNT_ALLOWANCE_SUM+") over(PARTITION by 1) as 补贴金额合计,  sum(t.expressfee) as 快递费金额,sum(sum(t.expressfee)) over(PARTITION by 1) as 快递费金额合计 ,  " 
+		                 + "count(*)as 订单数量," + "sum(count(*))  over(PARTITION by 1) as  订单数量合计,");
+        if(StringUtils.isNotBlank(timetype)&&timetype.equals("playtime")){
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_QUANTITY+") as 出票数量, sum(sum("+OrderConstant.BUY_ITEM_SEL_QUANTITY+")) over(PARTITION by 1) as 出票数量合计," );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_TOTALFEE+") as 订单金额,sum(sum("+OrderConstant.BUY_ITEM_SEL_TOTALFEE+")) over(PARTITION by 1) as 订单金额合计,"  );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_TOTALCOST+") as 成本金额,sum(sum("+OrderConstant.BUY_ITEM_SEL_TOTALCOST+")) over(PARTITION by 1) as 成本金额合计," );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_MP_COUNT_PLAYTIME+") as 订票场次,sum(sum("+OrderConstant.BUY_ITEM_MP_COUNT_PLAYTIME+")) over(PARTITION by 1) as 订票场次合计," );
+        }else{
+	        /*sql.append("sum(t.quantity) as 出票数量, sum(sum(t.quantity)) over(PARTITION by 1) as 出票数量合计,");  
+	        sql.append("sum(t.amount+t.otherfee+t.itemfee) as 订单金额,sum(sum(t.amount+t.otherfee+t.itemfee)) over(PARTITION by 1) as 订单金额合计,");   
+	        sql.append("sum(t.totalcost) as 成本金额,sum(sum(t.totalcost)) over(PARTITION by 1) as 成本金额合计,");
+	        sql.append("sum("+OrderConstant.BUY_ITEM_MP_COUNT_ADDTIME+") as 订票场次,sum(sum("+OrderConstant.BUY_ITEM_MP_COUNT_ADDTIME+")) over(PARTITION by 1) as 订票场次合计," );
+	        */
+        	sql.append("sum("+OrderConstant.BUY_ITEM_SEL_QUANTITY_ADDTIME+") as 出票数量, sum(sum("+OrderConstant.BUY_ITEM_SEL_QUANTITY_ADDTIME+")) over(PARTITION by 1) as 出票数量合计," );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_TOTALFEE_ADDTIME+") as 订单金额,sum(sum("+OrderConstant.BUY_ITEM_SEL_TOTALFEE_ADDTIME+")) over(PARTITION by 1) as 订单金额合计,"  );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_TOTALCOST_ADDTIME+") as 成本金额,sum(sum("+OrderConstant.BUY_ITEM_SEL_TOTALCOST_ADDTIME+")) over(PARTITION by 1) as 成本金额合计," );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_MP_COUNT_ADDTIME+") as 订票场次,sum(sum("+OrderConstant.BUY_ITEM_MP_COUNT_ADDTIME+")) over(PARTITION by 1) as 订票场次合计," );
+	        sql.append("sum("+OrderConstant.BUY_ITEM_SEL_PROFIT_ADDTIME+") as 毛利润,sum(sum("+OrderConstant.BUY_ITEM_SEL_PROFIT_ADDTIME+")) over(PARTITION by 1) as 毛利润合计,");
+     
+        }
+        sql.append("sum(t.discount) as 优惠金额,"+ "	sum(sum(t.discount)) over(PARTITION by 1) as 优惠金额合计," );
+        sql.append("sum(t.specdis) as 扣减金额," + "	sum(sum(t.specdis)) over(PARTITION by 1) as 扣减金额合计," + "	sum(t.accountpay) as 账户支付金额,");
+        sql.append("sum(sum(t.accountpay)) over(PARTITION by 1) as 账户支付金额合计," + "	sum(t.gewapaid) as 余额支付金额," + "	sum(sum(t.gewapaid)) over(PARTITION by 1) as 余额支付金额合计,");
+        sql.append("sum(t.alipaid) as 网络支付金额," + "	sum(sum(t.alipaid)) over(PARTITION by 1) as 网络支付金额合计," + "	sum(t.wabipay) as 瓦币支付金额,");
+        sql.append("sum(sum(t.wabipay)) over(PARTITION by 1) as 瓦币支付金额合计," );//+ "	sum(COALESCE(t.amount,0) - COALESCE(t.totalcost,0))as 毛利润,"
+        //sql.append("sum(sum(COALESCE(t.amount,0) - COALESCE(t.totalcost,0))) over(PARTITION by 1) as 毛利润合计,"); 
+		sql.append("sum(t.aamount)as 兑换券金额,	sum(sum(t.aamount)) over(PARTITION by 1) as 兑换券金额合计," );
+		sql.append("sum(t.costprice*t.acount)as 兑换券成本,	sum(sum(t.costprice*t.acount)) over(PARTITION by 1) as 兑换券成本合计," );
+		sql.append("sum(t.bamount)as 补差券金额,	sum(sum(t.bamount)) over(PARTITION by 1) as 补差券金额合计," );
+		sql.append("sum(t.camount+t.damount)as 抵值券金额,	sum(sum(t.camount+t.damount)) over(PARTITION by 1) as 抵值券金额合计," );
+		sql.append("sum(t.acount)as 兑换券数量,	sum(sum(t.acount)) over(PARTITION by 1) as 兑换券数量合计," );
+		sql.append("sum(t.bcount)as 补差券数量,	sum(sum(t.bcount)) over(PARTITION by 1) as 补差券数量合计," );
+        sql.append("sum(t.ccount+t.dcount)as 抵值券数量,	sum(sum(t.ccount+t.dcount)) over(PARTITION by 1) as 抵值券数量合计, " );
+        sql.append("sum(t.point)as 抵用积分数,sum(sum(t.point)) over(PARTITION by 1) as 抵用积分数合计" + "  from	ticketorder t LEFT JOIN specialdiscount s on s.recordid=t.spid " + whereSql + "  group by 1,2,3 order by itemid,placeid,salecycle ");
+        return daoService.queryMapBySQL(sql.toString(), pageSize * pageNo, pageSize, params.toArray());
+	}
+
+
+1、不同第三方平台同步影院、座位图、场次（http定时任务，线程池）
+2、通知avatar系统（JMS 发送cinemaid，由avatar系统该ID）
+3、avatar系统，http查询同步ticket场次数据，保存到movieplayitem
+4、avatar场次开放，设置价格等,同时发送jms个gewampi系统，更新相关的场次(mongodb)
