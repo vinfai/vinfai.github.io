@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="dubbo," />
 
 
 
@@ -86,15 +86,28 @@
 
 
 
-<meta name="description" content="学会生活、学会学习、行动起来！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="燕子小窝">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta name="description" content="dubbo 是什么设计dubbo需求
+1. 服务垂直拆分后，服务URL配置管理困难。需要一个注册中心，动态注册和发现服务，使服务的位置透明。并通过在消费方获取服务提供者的地址列表，实现负载均衡和失效转移(failover)。
+2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。自动画出依赖关系图。
+3. 服务的调用量越来越大，服务的容量问题就暴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dubbo简介">
+<meta property="og:url" content="http://yoursite.com/2017/10/26/dubbo简介/index.html">
 <meta property="og:site_name" content="燕子小窝">
-<meta property="og:description" content="学会生活、学会学习、行动起来！">
+<meta property="og:description" content="dubbo 是什么设计dubbo需求
+1. 服务垂直拆分后，服务URL配置管理困难。需要一个注册中心，动态注册和发现服务，使服务的位置透明。并通过在消费方获取服务提供者的地址列表，实现负载均衡和失效转移(failover)。
+2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。自动画出依赖关系图。
+3. 服务的调用量越来越大，服务的容量问题就暴">
+<meta property="og:image" content="https://dubbo.gitbooks.io/dubbo-user-book/sources/images/dubbo-service-governance.jpg">
+<meta property="og:image" content="https://dubbo.gitbooks.io/dubbo-user-book/sources/images/dubbo-architecture.jpg">
+<meta property="og:updated_time" content="2017-10-26T15:37:04.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="燕子小窝">
-<meta name="twitter:description" content="学会生活、学会学习、行动起来！">
+<meta name="twitter:title" content="dubbo简介">
+<meta name="twitter:description" content="dubbo 是什么设计dubbo需求
+1. 服务垂直拆分后，服务URL配置管理困难。需要一个注册中心，动态注册和发现服务，使服务的位置透明。并通过在消费方获取服务提供者的地址列表，实现负载均衡和失效转移(failover)。
+2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。自动画出依赖关系图。
+3. 服务的调用量越来越大，服务的容量问题就暴">
+<meta name="twitter:image" content="https://dubbo.gitbooks.io/dubbo-user-book/sources/images/dubbo-service-governance.jpg">
 
 
 
@@ -122,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/26/dubbo简介/"/>
 
 
 
 
 
-  <title> 归档 | 燕子小窝 </title>
+  <title> dubbo简介 | 燕子小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -149,7 +162,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,184 +264,215 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 8 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/26/dubbo简介/" itemprop="url">
-              
-                <span itemprop="name">dubbo简介</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-26T23:00:49+08:00"
-              content="2017-10-26" >
-          10-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/ZooKeeper入门/" itemprop="url">
-              
-                <span itemprop="name">ZooKeeper入门</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T13:55:48+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/13/缓存穿透和缓存失效的预防和解决/" itemprop="url">
-              
-                <span itemprop="name">缓存穿透和缓存失效的预防和解决</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-13T18:03:26+08:00"
-              content="2017-01-13" >
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/05/分布式原理-一致性协议与算法/" itemprop="url">
-              
-                <span itemprop="name">分布式原理-一致性协议与算法（阶段提交协议）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-05T18:30:58+08:00"
-              content="2017-01-05" >
-          01-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/26/dubbo简介/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="暗影随风">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="燕子小窝">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="燕子小窝" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                dubbo简介
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-26T23:00:49+08:00">
+                2017-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dubbo/" itemprop="url" rel="index">
+                    <span itemprop="name">dubbo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/26/dubbo简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/26/dubbo简介/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/10/26/dubbo简介/" class="leancloud_visitors" data-flag-title="dubbo简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="dubbo-是什么"><a href="#dubbo-是什么" class="headerlink" title="dubbo 是什么"></a>dubbo 是什么</h3><h3 id="设计dubbo需求"><a href="#设计dubbo需求" class="headerlink" title="设计dubbo需求"></a>设计dubbo需求</h3><p><img src="https://dubbo.gitbooks.io/dubbo-user-book/sources/images/dubbo-service-governance.jpg" alt="image"></p>
+<h4 id="1-服务垂直拆分后，服务URL配置管理困难。"><a href="#1-服务垂直拆分后，服务URL配置管理困难。" class="headerlink" title="1. 服务垂直拆分后，服务URL配置管理困难。"></a>1. 服务垂直拆分后，服务URL配置管理困难。</h4><p>需要一个注册中心，动态注册和发现服务，使服务的位置透明。并通过在消费方获取服务提供者的地址列表，实现<strong>负载均衡和失效转移(failover)</strong>。</p>
+<h4 id="2-服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。"><a href="#2-服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。" class="headerlink" title="2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。"></a>2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。</h4><p>自动画出依赖关系图。</p>
+<h4 id="3-服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？"><a href="#3-服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？" class="headerlink" title="3. 服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？"></a>3. 服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？</h4><p>服务调用统计、容量评估。</p>
+<p>动态权重调整</p>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p><img src="https://dubbo.gitbooks.io/dubbo-user-book/sources/images/dubbo-architecture.jpg" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dubbo/" rel="tag"># dubbo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/14/ZooKeeper入门/" rel="next" title="ZooKeeper入门">
+                <i class="fa fa-chevron-left"></i> ZooKeeper入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/26/dubbo简介/"
+           data-title="dubbo简介" data-url="http://yoursite.com/2017/10/26/dubbo简介/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -448,8 +492,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -534,6 +587,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dubbo-是什么"><span class="nav-number">1.</span> <span class="nav-text">dubbo 是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计dubbo需求"><span class="nav-number">2.</span> <span class="nav-text">设计dubbo需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-服务垂直拆分后，服务URL配置管理困难。"><span class="nav-number">2.1.</span> <span class="nav-text">1. 服务垂直拆分后，服务URL配置管理困难。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。"><span class="nav-number">2.2.</span> <span class="nav-text">2. 服务之间依赖关系复杂，甚至分不清哪个应用要在哪个应用之前启动，架构师都不能完整的描述应用的架构关系。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？"><span class="nav-number">2.3.</span> <span class="nav-text">3. 服务的调用量越来越大，服务的容量问题就暴露出来，这个服务需要多少机器支撑？什么时候该加机器？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#架构"><span class="nav-number">3.</span> <span class="nav-text">架构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -640,11 +709,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
